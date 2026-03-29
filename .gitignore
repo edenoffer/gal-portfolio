@@ -25,3 +25,4 @@ public/2026/
 *.njsproj
 *.sln
 *.sw?
+.vercel
