@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import ProjectCard from '../components/ProjectCard';
+import WalkingCat from '../components/WalkingCat';
 import { projects, REEL_URL } from '../data/projects';
 import styles from './Home.module.css';
 
@@ -24,14 +25,15 @@ export default function Home() {
   return (
     <main className={styles.page}>
       {/* Hero */}
-      <section className={styles.hero}>
+      <section className={styles.hero} data-hero-section>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroName}>Gal<br />Michalevicz</h1>
+          <h1 className={styles.heroName} data-hero-title>Gal<br />Michalevicz</h1>
           <div className={styles.heroMeta}>
             <p className={styles.heroRole}>3D Animator</p>
             <p className={styles.heroTools}>Blender · Spine 2D · Unity · Amsterdam</p>
           </div>
         </div>
+        <WalkingCat />
         <div className={styles.heroRule} />
       </section>
 

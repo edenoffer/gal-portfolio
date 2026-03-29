@@ -1,0 +1,102 @@
+/*
+ * Sprite sheet: /assets/cat-sprite.png  256×320px  →  8 cols × 10 rows  →  32×32px per frame
+ *
+ * Row Y offsets at each scale:
+ *   Row 1  y=0    sit/idle  4 frames  3×: y=0      4×: y=0
+ *   Row 5  y=128  walk      8 frames  3×: y=384    4×: y=512
+ *   Row 10 y=288  jump/leap 8 frames  3×: y=864
+ *
+ * To try different rows: change the y value in the corresponding @keyframes.
+ */
+
+/* ─── Outer: fixed to viewport, position + flip ─────────────── */
+.outer {
+  position: fixed;
+  /* left + top set by JS via style.left / style.top */
+  z-index: 9999;
+  pointer-events: none;   /* track doesn't eat clicks */
+  cursor: grab;
+}
+
+.outer:active {
+  cursor: grabbing;
+}
+
+.flipped {
+  transform: scaleX(-1);
+}
+
+/* ─── Inner sprite div ───────────────────────────────────────── */
+.inner {
+  /* Base 3× */
+  width: 96px;
+  height: 96px;
+  background-image: url('/assets/cat-sprite.png');
+  background-repeat: no-repeat;
+  background-size: 768px 960px;   /* 256×3 = 768,  320×3 = 960 */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: auto;           /* receives clicks/drags */
+  cursor: grab;
+  user-select: none;
+  touch-action: none;             /* let pointer events handle touch */
+}
+
+/* Big variant (4×) — used during walkBack */
+.big {
+  width: 128px;
+  height: 128px;
+  background-size: 1024px 1280px; /* 256×4 = 1024, 320×4 = 1280 */
+}
+
+/* ─── Walk right — row 5, 8 frames, 3× ──────────────────────── */
+.walk {
+  animation: catWalk3x 0.75s steps(8) infinite;
+}
+
+@keyframes catWalk3x {
+  from { background-position: 0px    -384px; }
+  to   { background-position: -768px -384px; }
+}
+
+/* ─── Walk left (bigger) — row 5, 8 frames, 4× ──────────────── */
+.walkBack {
+  animation: catWalk4x 0.65s steps(8) infinite;
+}
+
+@keyframes catWalk4x {
+  from { background-position: 0px     -512px; }
+  to   { background-position: -1024px -512px; }
+}
+
+/* ─── Sit / held during drag — row 1, 4 frames, 3× ─────────── */
+.sit {
+  animation: catSit3x 1.1s steps(4) infinite;
+}
+
+@keyframes catSit3x {
+  from { background-position: 0px    0px; }
+  to   { background-position: -384px 0px; }
+}
+
+/* ─── Jump — row 10, 8 frames + vertical arc ─────────────────── */
+.jump {
+  animation:
+    catJumpSprite 0.55s steps(8) infinite,
+    catJump       0.95s ease-out forwards;
+}
+
+@keyframes catJumpSprite {
+  from { background-position: 0px    -864px; }
+  to   { background-position: -768px -864px; }
+}
+
+/* Vertical arc: grows at apex, squash on landing */
+@keyframes catJump {
+  0%   { transform: translateY(0)     scaleX(1)    scaleY(1);   }
+  30%  { transform: translateY(-100px) scaleX(0.85) scaleY(1.3); }
+  55%  { transform: translateY(-130px) scaleX(0.8)  scaleY(1.5); }
+  78%  { transform: translateY(-35px)  scaleX(1.05) scaleY(1.1); }
+  90%  { transform: translateY(-6px)   scaleX(1.1)  scaleY(0.9); }
+  100% { transform: translateY(0)     scaleX(1)    scaleY(1);   }
+}
