@@ -1,0 +1,153 @@
+.page {
+  padding-top: var(--nav-height);
+  padding-left: var(--page-x);
+  padding-right: var(--page-x);
+}
+
+/* ─── Hero ───────────────────────────────────────────────── */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 48px;
+}
+
+.heroInner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.heroName {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 10vw, 140px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.heroRole {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.heroTools {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.heroRule {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-top: 48px;
+}
+
+/* ─── Reel ───────────────────────────────────────────────── */
+.reel {
+  padding: 64px 0;
+}
+
+.reelHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.reelEmbed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.reelEmbed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.reelPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--bg-card);
+  background-image: radial-gradient(circle, var(--dot-color, #1e1e1c) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.reelPlaceholderText {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 5vw, 64px);
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reelPlaceholderSub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+  padding: 0 16px;
+}
+
+/* ─── Work grid ──────────────────────────────────────────── */
+.work {
+  padding-bottom: 120px;
+}
+
+.workHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heroMeta { align-items: flex-start; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding-bottom: 32px; }
+  .heroInner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .heroMeta { align-items: flex-start; }
+  .heroName { font-size: clamp(40px, 12vw, 64px); }
+  .heroRule { margin-top: 32px; }
+  .reel { padding: 40px 0; }
+}

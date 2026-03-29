@@ -1,0 +1,211 @@
+.page {
+  padding-top: calc(var(--nav-height) + 64px);
+  padding-left: var(--page-x);
+  padding-right: var(--page-x);
+  padding-bottom: 120px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* ─── Photo ──────────────────────────────────────────────── */
+.photoplaceholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--bg-card);
+  background-image: radial-gradient(circle, var(--dot-color, #1e1e1c) 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: calc(var(--nav-height) + 24px);
+}
+
+.photoHint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Rule ───────────────────────────────────────────────── */
+.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+/* ─── Bio ────────────────────────────────────────────────── */
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bio p {
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+.bio p:first-child {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+/* ─── Tools ──────────────────────────────────────────────── */
+.toolsHeader {
+  margin-bottom: 20px;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 32px;
+}
+
+.toolCategory {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.toolList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.toolItem {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* ─── Education ──────────────────────────────────────────── */
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.educationHeader {
+  margin-bottom: 4px;
+}
+
+.eduItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.eduMain {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eduDegree {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.eduSchool {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.eduYear {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* ─── Languages ──────────────────────────────────────────── */
+.languages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.langList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.langItem {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .photoplaceholder {
+    position: static;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page { padding-top: calc(var(--nav-height) + 40px); }
+  .toolsGrid { grid-template-columns: 1fr; gap: 20px; }
+  .bio p { font-size: 14px; }
+  .bio p:first-child { font-size: 17px; }
+}
+
+@media (max-width: 480px) {
+  .eduItem { flex-direction: column; gap: 6px; }
+  .eduYear { padding-top: 0; }
+}

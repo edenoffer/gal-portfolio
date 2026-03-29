@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta -->
+    <title>Gal Michalevicz — 3D Animator & Tech Artist</title>
+    <meta name="description" content="3D Animator and Tech Artist with 5+ years in mobile games. Blender, Spine 2D, Unity. Based in Amsterdam." />
+    <meta name="keywords" content="3D animator, tech artist, mobile game animator, Spine 2D, Unity, Blender, character animation, game artist, Amsterdam" />
+    <meta name="author" content="Gal Michalevicz" />
+    <link rel="canonical" href="https://just-a-gal.com/" />
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://just-a-gal.com/" />
+    <meta property="og:title" content="Gal Michalevicz — 3D Animator & Tech Artist" />
+    <meta property="og:description" content="3D Animator and Tech Artist with 5+ years in mobile games. Blender, Spine 2D, Unity. Based in Amsterdam." />
+    <meta property="og:image" content="https://just-a-gal.com/assets/thumbs/sneaky-panda.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Gal Michalevicz Portfolio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gal Michalevicz — 3D Animator & Tech Artist" />
+    <meta name="twitter:description" content="3D Animator and Tech Artist with 5+ years in mobile games. Blender, Spine 2D, Unity." />
+    <meta name="twitter:image" content="https://just-a-gal.com/assets/thumbs/sneaky-panda.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured data — Person + Portfolio -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://just-a-gal.com/#person",
+          "name": "Gal Michalevicz",
+          "jobTitle": "3D Animator & Tech Artist",
+          "url": "https://just-a-gal.com",
+          "email": "galmichalevicz@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bezalel Academy of Art and Design"
+          },
+          "knowsAbout": ["3D Animation", "Tech Art", "Spine 2D", "Unity", "Blender", "Mobile Game Development", "Character Rigging"],
+          "sameAs": ["https://linkedin.com/in/gal-michalevicz"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://just-a-gal.com/#website",
+          "url": "https://just-a-gal.com",
+          "name": "Gal Michalevicz Portfolio",
+          "description": "3D Animator and Tech Artist portfolio — mobile games, character animation, Spine 2D, Unity",
+          "author": { "@id": "https://just-a-gal.com/#person" }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <!-- Prevent theme flash on load -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

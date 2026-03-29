@@ -1,0 +1,38 @@
+.cursor {
+  position: fixed;
+  top: -12px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--text-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, top 0.2s ease, left 0.2s ease;
+  will-change: transform;
+}
+
+.hovered {
+  width: 56px;
+  height: 56px;
+  top: -28px;
+  left: -28px;
+  background: transparent;
+  border-color: var(--text-primary);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+@media (pointer: coarse) {
+  .cursor { display: none; }
+}
