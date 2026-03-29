@@ -43,6 +43,9 @@ export default function WalkingCat() {
 
   // ── Initial position: just above the hero h1 ──────────────────
   useEffect(() => {
+    // Disable on mobile — avoids interfering with touch scrolling
+    if (window.innerWidth < 768) return;
+
     const init = () => {
       const h1 = document.querySelector('[data-hero-title]');
       if (!h1) return;
